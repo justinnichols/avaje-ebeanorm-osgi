@@ -75,4 +75,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>avaje-ebeanorm-osgi-repo</id>
+            <url>http://ebeanorm-deploy-host:8082/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>avaje-ebeanorm-osgi-repo</id>
+            <url>http://ebeanorm-deploy-host:8082/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
