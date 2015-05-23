@@ -46,7 +46,10 @@
                         <Export-Package>
                             com.avaje*
                         </Export-Package>
-                        <Import-Package>*;resolution:=optional</Import-Package>
+                        <Import-Package>
+                            javax.persistence*,
+                            *;resolution:=optional</Import-Package>
+                        <DynamicImport-Package>*</DynamicImport-Package>
                         <_versionpolicy>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy>
                         <_removeheaders>Include-Resource,Private-Package,Embed-Dependency</_removeheaders>
                     </instructions>
