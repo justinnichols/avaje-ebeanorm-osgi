@@ -12,7 +12,7 @@
 
     <groupId>${ebean.groupid}</groupId>
     <artifactId>${ebean.artifactid}-osgi</artifactId>
-    <version>${ebean.version}</version>
+    <version>1.0.0</version>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -41,15 +41,15 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Name>Ebean-ORM</Bundle-Name>
-                        <Bundle-SymbolicName>com.avaje.ebean</Bundle-SymbolicName>
+                        <Bundle-Name>Ebean-ORM OSGi</Bundle-Name>
+                        <Bundle-SymbolicName>org.avaje.ebeanorm.osgi</Bundle-SymbolicName>
                         <Export-Package>
                             com.avaje*
                         </Export-Package>
+                        <DynamicImport-Package>*</DynamicImport-Package>
                         <Import-Package>
                             javax.persistence*,
                             *;resolution:=optional</Import-Package>
-                        <DynamicImport-Package>*</DynamicImport-Package>
                         <_versionpolicy>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy>
                         <_removeheaders>Include-Resource,Private-Package,Embed-Dependency</_removeheaders>
                     </instructions>
