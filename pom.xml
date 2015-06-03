@@ -7,19 +7,35 @@
     <properties>
         <ebean.groupid>org.avaje.ebeanorm</ebean.groupid>
         <ebean.artifactid>avaje-ebeanorm</ebean.artifactid>
-        <ebean.version>4.6.2</ebean.version>
+        <ebean.version>4.7.1-SNAPSHOT</ebean.version>
+        <agentloader.groupid>org.avaje</agentloader.groupid>
+        <agentloader.artifactid>avaje-agentloader</agentloader.artifactid>
+        <agentloader.version>1.1.2</agentloader.version>
+        <ebeanagent.groupid>org.avaje.ebeanorm</ebeanagent.groupid>
+        <ebeanagent.artifactid>avaje-ebeanorm-agent</ebeanagent.artifactid>
+        <ebeanagent.version>4.5.3</ebeanagent.version>
     </properties>
 
     <groupId>${ebean.groupid}</groupId>
     <artifactId>${ebean.artifactid}-osgi</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
     <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.avaje.ebeanorm</groupId>
-            <artifactId>avaje-ebeanorm</artifactId>
+            <groupId>${ebean.groupid}</groupId>
+            <artifactId>${ebean.artifactid}</artifactId>
             <version>${ebean.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${agentloader.groupid}</groupId>
+            <artifactId>${agentloader.artifactid}</artifactId>
+            <version>${agentloader.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${ebeanagent.groupid}</groupId>
+            <artifactId>${ebeanagent.artifactid}</artifactId>
+            <version>${ebeanagent.version}</version>
         </dependency>
     </dependencies>
 
@@ -44,7 +60,8 @@
                         <Bundle-Name>Ebean-ORM OSGi</Bundle-Name>
                         <Bundle-SymbolicName>org.avaje.ebeanorm.osgi</Bundle-SymbolicName>
                         <Export-Package>
-                            com.avaje*
+                            com.avaje*,
+                            org.avaje*
                         </Export-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Import-Package>
@@ -68,6 +85,8 @@
                             <artifactSet>
                                 <includes>
                                     <include>${ebean.groupid}:${ebean.artifactid}</include>
+                                    <include>${agentloader.groupid}:${agentloader.artifactid}</include>
+                                    <include>${ebeanagent.groupid}:${ebeanagent.artifactid}</include>
                                 </includes>
                             </artifactSet>
                             <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
